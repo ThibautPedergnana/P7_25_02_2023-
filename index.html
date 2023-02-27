@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-
     <title>Les petits plats</title>
 </head>
 
@@ -17,7 +16,7 @@
     <main id="main">
         <section class="search-bar">
             <div class="search-wrapper">
-                <input type="search" id="search" />
+                <input type="search" id="search" data-search />
             </div>
         </section>
         <section class="filter-section">
@@ -29,8 +28,52 @@
                 </div>
             </form>
         </section>
-        <section class="recipe-section"></section>
+        <section class="recipe-section" data-recipe-cards-container></section>
+        <template data-recipe-template>
+            <div class="card">
+                <div class="img-container">
+                    <img class="img" src="assets/temp_image.png" alt="image plats temporaire" />
+                </div>
+                <div class="content">
+                    <div class="top-description">
+                        <h2 class="title" data-title></h2>
+                        <div class="timer">
+                            <i class="fa-regular fa-clock"></i>
+                            <span class="time" data-time></span>
+                        </div>
+                    </div>
+                    <div class="bottom-description">
+                        <ul class="ingredients-list">
+                            <li>
+                                <span class="ingredient" data-ingredient></span>
+                                <span class="quantity" data-quantity></span>
+                                <span class="unit" data-unit></span>
+                            </li>
+                            <li>
+                                <span class="ingredient" data-ingredient></span>
+                                <span class="quantity" data-quantity></span>
+                                <span class="unit" data-unit></span>
+                            </li>
+                            <li>
+                                <span class="ingredient" data-ingredient></span>
+                                <span class="quantity" data-quantity></span>
+                                <span class="unit" data-unit></span>
+                            </li>
+                            <li>
+                                <span class="ingredient" data-ingredient></span>
+                                <span class="quantity" data-quantity></span>
+                                <span class="unit" data-unit></span>
+                            </li>
+                        </ul>
+                        <p class="description" data-description></p>
+                    </div>
+                </div>
+            </div>
+        </template>
     </main>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/0545fe024b.js" crossorigin="anonymous"></script>
 
     <!-- Entry point -->
     <script src="/scripts/script.js" type="module"></script>
@@ -38,8 +81,6 @@
     <!-- Data -->
     <script src="/scripts/utils/recipes.js" type="module"></script>
 
-    <!-- Templates -->
-    <script src="/scripts/templates/RecipeCard.js"></script>
 </body>
 
 </html>
