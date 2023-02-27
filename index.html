@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+
+    <title>Les petits plats</title>
+</head>
+
+<body>
+    <header id="header">
+        <img class="header-img" src="assets/header_logo.png" alt="Les petits plats" />
+    </header>
+    <main id="main">
+        <section class="search-bar">
+            <div class="search-wrapper">
+                <input type="search" id="search" />
+            </div>
+        </section>
+        <section class="filter-section">
+            <form class="filter-form">
+                <div class="dropdown">
+                    <button onclick="dropDown()"></button>
+                    <button onclick="dropDown()"></button>
+                    <button onclick="dropDown()"></button>
+                </div>
+            </form>
+        </section>
+        <section class="recipe-section"></section>
+    </main>
+
+    <!-- Entry point -->
+    <script src="/scripts/script.js" type="module"></script>
+
+    <!-- Data -->
+    <script src="/scripts/utils/recipes.js" type="module"></script>
+
+    <!-- Templates -->
+    <script src="/scripts/templates/RecipeCard.js"></script>
+</body>
+
+</html>

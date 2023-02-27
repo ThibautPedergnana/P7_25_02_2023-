@@ -1,0 +1,89 @@
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.8rem;
+  padding: 30px;
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+}
+
+.header-img {
+  width: 300px;
+}
+
+#search {
+  width: 100%;
+  font-size: 1rem;
+}
+
+.recipe-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.recipe-card {
+}
+
+.card {
+  border: none;
+  background-color: #d7d7d7;
+  border-radius: 5px;
+}
+
+.hide {
+  display: none;
+}
+
+.img-container {
+  overflow: hidden;
+  max-height: 150px;
+  border-radius: 5px 5px 0 0;
+}
+
+.content {
+  padding: 20px;
+}
+
+.top-description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: 400;
+  max-width: 280px;
+}
+
+.time {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.bottom-description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ingredients-list {
+  list-style-type: none;
+  margin: 0 10px 0 0;
+  padding: 0;
+}
+
+.ingredient {
+  margin: 2px;
+  font-weight: bold;
+}
+
+.ingredient span {
+  font-weight: 100;
+}
+
+.description {
+  max-width: 200px;
+}
