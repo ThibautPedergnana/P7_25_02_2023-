@@ -10,6 +10,9 @@ let myRecipes = [];
 
 searchInput.addEventListener("input", (e) => {
   const value = e.target.value.toLowerCase();
+  if (e.target.value.length < 3) {
+    return;
+  }
   myRecipes.forEach((recipe) => {
     const isVisible =
       recipe.name.toLowerCase().includes(value) ||

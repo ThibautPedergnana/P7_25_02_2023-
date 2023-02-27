@@ -1,3 +1,5 @@
+/* Global Section */
+
 body {
   font-family: "DM Sans", sans-serif;
   font-size: 0.8rem;
@@ -13,19 +15,71 @@ body {
   width: 300px;
 }
 
+/* Search Bar Section */
 #search {
   width: 100%;
   font-size: 1rem;
+  background-color: #e7e7e7;
+  border: none;
+  border-radius: 5px;
+  height: 50px;
 }
 
+#search::placeholder {
+  padding-left: 15px;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+}
+.fa-magnifying-glass {
+  position: relative;
+  right: 30px;
+  font-size: 1.2rem;
+}
+
+/* Filter Section */
+
+.filter-form {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 1rem 0.9rem;
+}
+
+.dropdown > .btn {
+  font-size: 1rem;
+}
+
+.btn-ingredients {
+  background-color: #3182f0;
+  border-color: #3182f0;
+}
+
+.btn-appareils {
+  background-color: #52d9a8;
+  border-color: #52d9a8;
+}
+
+.btn-ustensiles {
+  background-color: #f46359;
+  border-color: #f46359;
+}
+
+.dropdown-toggle::after {
+  margin-left: 1.5rem;
+}
+
+/* Cards Section */
 .recipe-section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 1.5rem;
   margin-top: 1rem;
-}
-
-.recipe-card {
 }
 
 .card {
@@ -52,16 +106,31 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0 0 15px;
 }
 
 .title {
   font-weight: 400;
-  max-width: 280px;
+  max-width: 250px;
+  font-size: 1.2rem;
+}
+
+.timer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timer i {
+  font-size: 1.2rem;
 }
 
 .time {
   font-size: 1.1rem;
   font-weight: bold;
+  margin-left: 10px;
+  white-space: nowrap;
 }
 
 .bottom-description {
