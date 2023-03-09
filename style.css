@@ -138,10 +138,8 @@ body {
   justify-content: space-between;
 }
 
-.ingredients-list {
-  list-style-type: none;
-  margin: 0 10px 0 0;
-  padding: 0;
+.list-ingredient p {
+  margin: 0;
 }
 
 .ingredient {
