@@ -6,6 +6,7 @@ const recipeCardContainer = document.querySelector(
   "[data-recipe-cards-container]"
 );
 const searchInput = document.querySelector("[data-search]");
+const messageEmptyCards = document.querySelector(".message-empty-cards");
 
 let myRecipes = [];
 
@@ -50,6 +51,8 @@ function init() {
 }
 
 function displayRecipe(value) {
+  let nbElemsHidden = 0;
+  const messageIsHidden = document.querySelector(".message-empty-cards.hide");
   myRecipes.forEach((recipe) => {
     const isVisible =
       recipe.name.toLowerCase().includes(value) ||
@@ -57,18 +60,29 @@ function displayRecipe(value) {
       recipe.ingredients.find((ingr) =>
         ingr.ingredient.toLowerCase().includes(value)
       );
+    !isVisible && nbElemsHidden++;
     recipe.element.classList.toggle("hide", !isVisible);
   });
+
+  if (messageIsHidden && nbElemsHidden === recipes.length) {
+    messageEmptyCards.classList.toggle("hide", false);
+  } else if (!messageIsHidden && nbElemsHidden !== recipes.length)
+    messageEmptyCards.classList.toggle("hide", true);
 }
 
-searchInput.addEventListener("input", (e) => {
+searchInput.addEventListener("keyup", (e) => {
   const value = e.target.value.toLowerCase();
-  if (e.target.value.length >= 3) {
-    displayRecipe(value);
+  if (e.target.value.length > 2) displayRecipe(value);
+  else if (
+    (e.keyCode === 8 && e.target.value.length === 2) ||
+    e.target.value.length === 0
+  ) {
+    document.querySelectorAll(".card").forEach((card) => card.remove());
+    init();
   }
 });
 
 init();
 showFilters();
 
-export { displayRecipe };
+export { displayRecipe, init };

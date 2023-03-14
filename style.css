@@ -41,10 +41,16 @@ body {
 
 /* Filter Section */
 
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
 .filter-form {
   display: flex;
   gap: 0.75rem;
-  margin-top: 10px;
+  margin-top: 0.75rem;
 }
 
 .btn {
@@ -70,8 +76,58 @@ body {
   border-color: #f46359;
 }
 
+.dropdown-menu.show {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  transform: translate3d(0px, 58px, 0px) !important;
+}
+
 .dropdown-toggle::after {
   margin-left: 1.5rem;
+}
+
+.ingredients-options {
+  background-color: #3182f0;
+}
+
+.appliance-options {
+  background-color: #52d9a8;
+}
+
+.ustensils-options {
+  background-color: #f46359;
+}
+
+.dropdown-item {
+  color: #fff;
+}
+
+.choice-container {
+  display: none;
+}
+
+.show-options {
+  display: flex;
+}
+
+.choice-card {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.choice {
+  margin-right: 5px;
+}
+
+.btn-remove {
+  all: unset;
+  cursor: pointer;
+}
+
+.btn-remove:focus {
+  outline: rgb(5, 70, 247) 5px auto;
 }
 
 /* Cards Section */

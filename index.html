@@ -24,9 +24,17 @@
             </div>
         </section>
         <section class="filter-section">
+            <div class="choice-container">
+                <div class="choice-card">
+                    <span class="choice choice-content"></span>
+                    <button class="btn-remove">
+                        <i class="fa-sharp fa-regular fa-circle-xmark choice-content"></i>
+                    </button>
+                </div>
+            </div>
             <form class="filter-form">
                 <div class="dropdown filter-ingredients">
-                    <button class="btn btn-secondary dropdown-toggle btn-ingredients" type="button" id="dropdownMenu2"
+                    <button class="btn btn-secondary dropdown-toggle btn-ingredients" type="button" id="dropdownMenu1"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Ingredients
                     </button>
@@ -40,7 +48,7 @@
                     <div class="dropdown-menu appliance-options" aria-labelledby="dropdownMenu2"></div>
                 </div>
                 <div class="dropdown filter-ustensiles">
-                    <button class="btn btn-secondary dropdown-toggle btn-ustensiles" type="button" id="dropdownMenu2"
+                    <button class="btn btn-secondary dropdown-toggle btn-ustensiles" type="button" id="dropdownMenu3"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Ustensiles
                     </button>
@@ -69,6 +77,7 @@
                 </div>
             </div>
         </template>
+        <div class="message-empty-cards hide">Aucun élement correspond à votre recherche</div>
     </main>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -93,6 +102,9 @@
 
     <!-- Data -->
     <script src="/scripts/utils/recipes.js" type="module"></script>
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/0545fe024b.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
