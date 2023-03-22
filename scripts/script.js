@@ -11,7 +11,8 @@ const messageEmptyCards = document.querySelector(".message-empty-cards");
 let myRecipes = [];
 
 function init() {
-  myRecipes = recipes.map((recipe) => {
+  for (let index = 0; index < recipes.length; index++) {
+    const recipe = recipes[index];
     const card = recipeCardTemplate.content.cloneNode(true).children[0];
     const title = card.querySelector("[data-title]");
     const time = card.querySelector("[data-time]");
@@ -41,29 +42,37 @@ function init() {
     description.textContent = recipe.description;
 
     recipeCardContainer.append(card);
-    return {
+    myRecipes.push({
       name: recipe.name,
       ingredients: ingredients,
       description: recipe.description,
       element: card,
-    };
-  });
+    });
+  }
 }
 
 function displayRecipe(value) {
   let nbElemsHidden = 0;
+  let filteredRecipe = new Set(recipes);
   const messageIsHidden = document.querySelector(".message-empty-cards.hide");
-  myRecipes.forEach((recipe) => {
+
+  for (let index = 0; index < myRecipes.length; index++) {
+    const recipe = myRecipes[index];
     const isVisible =
       recipe.name.toLowerCase().includes(value) ||
       recipe.description.toLowerCase().includes(value) ||
-      recipe.ingredients.find((ingr) =>
+      recipe.ingredients.some((ingr) =>
         ingr.ingredient.toLowerCase().includes(value)
       );
+    if (nbElemsHidden === recipes.length) {
+      nbElemsHidden = 0;
+    }
     !isVisible && nbElemsHidden++;
+    if (!isVisible) {
+      filteredRecipe.delete(recipe);
+    }
     recipe.element.classList.toggle("hide", !isVisible);
-  });
-
+  }
   if (messageIsHidden && nbElemsHidden === recipes.length) {
     messageEmptyCards.classList.toggle("hide", false);
   } else if (!messageIsHidden && nbElemsHidden !== recipes.length)
