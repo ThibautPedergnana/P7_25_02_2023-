@@ -52,6 +52,7 @@ function init() {
 
 function displayRecipe(value) {
   let nbElemsHidden = 0;
+  let filteredRecipe = new Set(recipes);
   const messageIsHidden = document.querySelector(".message-empty-cards.hide");
   myRecipes.forEach((recipe) => {
     const isVisible =
@@ -64,6 +65,9 @@ function displayRecipe(value) {
       nbElemsHidden = 0;
     }
     !isVisible && nbElemsHidden++;
+    if (!isVisible) {
+      filteredRecipe.delete(recipe);
+    }
     recipe.element.classList.toggle("hide", !isVisible);
   });
 
