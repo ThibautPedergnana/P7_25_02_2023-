@@ -60,6 +60,9 @@ function displayRecipe(value) {
       recipe.ingredients.find((ingr) =>
         ingr.ingredient.toLowerCase().includes(value)
       );
+    if (nbElemsHidden === recipes.length) {
+      nbElemsHidden = 0;
+    }
     !isVisible && nbElemsHidden++;
     recipe.element.classList.toggle("hide", !isVisible);
   });
