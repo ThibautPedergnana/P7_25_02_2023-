@@ -48,6 +48,8 @@ function init() {
       name: recipe.name,
       ingredients: ingredients,
       description: recipe.description,
+      appliance: recipe.appliance,
+      ustensils: recipe.ustensils,
       element: card,
     });
   }
@@ -63,8 +65,12 @@ function displayRecipe(value) {
     const isVisible =
       recipe.name.toLowerCase().includes(value) ||
       recipe.description.toLowerCase().includes(value) ||
+      recipe.appliance.toLowerCase().includes(value) ||
       recipe.ingredients.some((ingr) =>
         ingr.ingredient.toLowerCase().includes(value)
+      ) ||
+      recipe.ustensils.some((ustensil) =>
+        ustensil.toLowerCase().includes(value)
       );
     if (nbElemsHidden === recipes.length) {
       nbElemsHidden = 0;
