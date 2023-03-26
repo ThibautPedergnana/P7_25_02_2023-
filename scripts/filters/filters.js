@@ -14,7 +14,11 @@ function removeFilter() {
   removeBtn.addEventListener("click", (e) => {
     e.preventDefault();
     choiceContainer.classList.remove("show-options");
-    document.querySelectorAll(".card").forEach((card) => card.remove());
+    const cards = document.querySelectorAll(".card");
+    for (let i = 0; i < cards.length; i += 1) {
+      const card = cards[i];
+      card.remove();
+    }
     init();
   });
 }
@@ -30,7 +34,8 @@ function ingredientsFilters() {
 
   uniqueIngredients = uniqueIngredients.sort();
 
-  uniqueIngredients.forEach((ingredientsName) => {
+  for (let index = 0; index < uniqueIngredients.length; index++) {
+    const ingredientsName = uniqueIngredients[index];
     const button = document.createElement("button");
     button.classList.add("dropdown-item");
     button.innerHTML = ingredientsName;
@@ -43,7 +48,7 @@ function ingredientsFilters() {
       choiceCard.classList.remove("appliance-options", "ustensils-options");
       choiceCard.classList.add("ingredients-options");
     });
-  });
+  }
 }
 
 // Affichage appareils
@@ -53,20 +58,21 @@ function applianceFilters() {
 
   uniqueAppliance = uniqueAppliance.sort();
 
-  uniqueAppliance.forEach((ApplianceName) => {
+  for (let index = 0; index < uniqueAppliance.length; index++) {
+    const applianceName = uniqueAppliance[index];
     const button = document.createElement("button");
     button.classList.add("dropdown-item");
-    button.innerHTML = ApplianceName;
+    button.innerHTML = applianceName;
     applianceDropdown.appendChild(button);
     button.addEventListener("click", (e) => {
       e.preventDefault();
-      displayRecipe(ApplianceName.toLowerCase());
+      displayRecipe(applianceName.toLowerCase());
       choice.textContent = e.target.firstChild.nodeValue;
       choiceContainer.classList.add("show-options");
       choiceCard.classList.remove("ingredients-options", "ustensils-options");
       choiceCard.classList.add("appliance-options");
     });
-  });
+  }
 }
 
 // Affichage ustensiles
@@ -76,7 +82,8 @@ function ustensilsFilters() {
 
   uniqueUstentil = uniqueUstentil.sort();
 
-  uniqueUstentil.forEach((ustensilName) => {
+  for (let index = 0; index < uniqueUstentil.length; index++) {
+    const ustensilName = uniqueUstentil[index];
     const button = document.createElement("button");
     button.classList.add("dropdown-item");
     button.innerHTML = ustensilName;
@@ -89,7 +96,7 @@ function ustensilsFilters() {
       choiceCard.classList.remove("ingredients-options", "appliance-options");
       choiceCard.classList.add("ustensils-options");
     });
-  });
+  }
 }
 
 function showFilters() {

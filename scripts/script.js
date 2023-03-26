@@ -22,7 +22,9 @@ function init() {
     title.textContent = recipe.name;
     time.textContent = recipe.time + " min";
     const { ingredients } = recipe;
-    ingredients.forEach((ingr) => {
+
+    for (let index = 0; index < ingredients.length; index++) {
+      const ingr = ingredients[index];
       const p = document.createElement("p");
       const ingredientElem = document.createElement("span");
       const quantityElem = document.createElement("span");
@@ -38,7 +40,7 @@ function init() {
         p.appendChild(unitElem);
       }
       ingredient.appendChild(p);
-    });
+    }
     description.textContent = recipe.description;
 
     recipeCardContainer.append(card);
@@ -86,7 +88,11 @@ searchInput.addEventListener("keyup", (e) => {
     (e.keyCode === 8 && e.target.value.length === 2) ||
     e.target.value.length === 0
   ) {
-    document.querySelectorAll(".card").forEach((card) => card.remove());
+    const cards = document.querySelectorAll(".card");
+    for (let i = 0; i < cards.length; i += 1) {
+      const card = cards[i];
+      card.remove();
+    }
     init();
   }
 });
