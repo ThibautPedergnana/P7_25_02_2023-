@@ -57,21 +57,25 @@ body {
   padding: 1rem 0.9rem;
 }
 
+.dropdown > input::placeholder {
+  color: white;
+}
+
 .dropdown > .btn {
   font-size: 1rem;
 }
 
-.btn-ingredients {
+.input-ingredients {
   background-color: #3182f0;
   border-color: #3182f0;
 }
 
-.btn-appareils {
+.input-appareils {
   background-color: #52d9a8;
   border-color: #52d9a8;
 }
 
-.btn-ustensiles {
+.input-ustensils {
   background-color: #f46359;
   border-color: #f46359;
 }
@@ -103,18 +107,21 @@ body {
 }
 
 .choice-container {
-  display: none;
+  display: flex;
+  gap: 20px;
 }
 
-.show-options {
+/* .show-options {
   display: flex;
-}
+} */
 
 .choice-card {
-  display: block;
+  cursor: pointer;
+
   padding: 0.5rem;
   border-radius: 5px;
   color: #fff;
+  width: fit-content;
 }
 
 .choice {
@@ -123,7 +130,6 @@ body {
 
 .btn-remove {
   all: unset;
-  cursor: pointer;
 }
 
 .btn-remove:focus {
